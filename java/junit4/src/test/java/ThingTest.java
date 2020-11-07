@@ -19,6 +19,9 @@ public class ThingTest {
 
             long c = Stream.of(args). //
                     filter(a -> a.startsWith("-seed=")). //
+                    map(a -> a.substring(6)). //
+                    map(seed -> seed.split(",")). //
+                    // map(xy -> grid[xy[0], xy[1]] = true
                     count();
             if (c > 0) {
                 return "___\n_x_\n___\n";
