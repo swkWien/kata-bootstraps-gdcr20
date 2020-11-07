@@ -2,7 +2,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.stream.Stream;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class ThingTest {
@@ -68,7 +67,7 @@ public class ThingTest {
         assertEquals("__\n__\n", output);
     }
 
-    // size 4
+    // size 4 ... fuer seed brauchen wir size vorher wegen grid
     // ticks 1
 
     @Test
@@ -81,3 +80,8 @@ public class ThingTest {
     }
 
 }
+
+// Peter ist (zu) schnell
+// Streams sind super
+// remote ist noch strikter mit Zeiten
+
