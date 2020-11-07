@@ -1,12 +1,13 @@
-# idee erklaeren
+import pytest
+
 
 def tick(field):
-    x = 5
-    y = 5
-    if field[x + 1][y] and field[x][y + 1]:
-        pass
-    else:
-        field[x][y] = False
+    for y, row in enumerate(field[:-1]):
+        for x, cell in enumerate(row[:-1]):
+            if field[x + 1][y] and field[x][y + 1]:
+                pass
+            else:
+                field[x][y] = False
 
 
 def create_field(*living_cells):
@@ -17,20 +18,16 @@ def create_field(*living_cells):
     return field
 
 
-def test_living_cell_with_no_living_neighbours_dies():
-    field = create_field((5, 5))
+@pytest.mark.parametrize("x,y,alive", [
+    (5, 5, [(5, 5)]),
+    (2, 2, [(2, 2), (5, 6), (6, 5)]),
+])
+def test_living_cell_with_no_living_neighbours_dies(x, y, alive):
+    field = create_field(*alive)
 
     tick(field)
 
-    assert not field[5][5]
-
-
-def test_living_cell_with_no_living_neighbours_dies_with_others_not_nearby():
-    field = create_field((2, 2), (5, 6), (6, 5))
-
-    tick(field)
-
-    assert not field[2][2]
+    assert not field[x][y]
 
 
 def test_living_cell_with_two_living_neighbours_stays():
@@ -39,7 +36,3 @@ def test_living_cell_with_two_living_neighbours_stays():
     tick(field)
 
     assert field[5][5]
-
-# wir kennen uns aus, deswegen koennen wir sehr high level sprechen
-# vielleicht schaffen wir das gar nicht, es unterscheidet sich nicht
-# viel von dem wie wir sonst arbeiten würden
