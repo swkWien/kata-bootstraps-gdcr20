@@ -19,11 +19,11 @@ def create_field(*living_cells):
 
 
 @pytest.mark.parametrize("x,y,alive", [
-    (5, 5, [(5, 5)]),
-    (2, 2, [(2, 2), (5, 6), (6, 5)]),
+    (5, 5, []),
+    (2, 2, [(5, 6), (6, 5)]),
 ])
 def test_living_cell_with_no_living_neighbours_dies(x, y, alive):
-    field = create_field(*alive)
+    field = create_field(*[(x, y)] + alive)
 
     tick(field)
 
