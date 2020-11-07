@@ -3,16 +3,35 @@ import org.mockito.Mockito;
 
 public class ThingTest {
 
-    interface Game {
-        void tick();
+    interface Output {
+        void printLine(String message);
+    }
+
+    class StdOut implements Output {
+        @Override
+        public void printLine(String message) {
+            System.out.println(message);
+        }
+    }
+
+    class Game {
+        private Output output;
+
+        public Game(Output output) {
+            this.output = output;
+        }
+
+        void tick() {
+            this.output.printLine("Output String");
+        }
     }
 
     @Test
-    void helloWorldGetsCalledFiveTimes() {
-        Object gameDriver = newGameDriver();
-        Game game = Mockito.mock(Game.class);
-        gameDriver.run(game);
+    void gameUsesOutputForWritingLines() {
+        Output output = Mockito.mock(Output.class);
+        Game newGame = new Game(output);
+        newGame.tick();
 
-        Mockito.verify(game, Mockito.times(5));
+        Mockito.verify(output).printLine("Output String");
     }
 }
