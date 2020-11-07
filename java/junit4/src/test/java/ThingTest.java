@@ -1,17 +1,28 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class ThingTest {
 
-    @Test
-    public void it_should_call_for_action() {
-        Thing thing = new Thing();
-        String value = thing.callForAction();
-        assertEquals("Food", value);
+    // von aussen nach innen
+
+    public class GameMain {
+
+        public String run(String string) {
+            if ("-v".equals(string)) {
+                String version = "Game of Live 1.0";
+                return version + "\n";
+            }
+            
+            throw new UnsupportedOperationException();
+        }
+
     }
 
     @Test
-    public void it_should_not_fail() {
-        assertTrue(true);
+    public void shouldHaveCommandLineVersion() {
+        GameMain main = new GameMain();
+        String output = main.run("-v");
+        assertEquals("Game of Live 1.0\n", output);
     }
 }
