@@ -1,10 +1,12 @@
 # idee erklaeren
 
 def tick(field):
-    if field[6][5] and field[5][6]:
+    x = 5
+    y = 5
+    if field[x + 1][y] and field[x][y + 1]:
         pass
     else:
-        field[5][5] = False
+        field[x][y] = False
 
 
 def test_living_cell_with_no_living_neighbours_dies():
