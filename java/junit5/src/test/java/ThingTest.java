@@ -1,18 +1,18 @@
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.Mockito;
 
 public class ThingTest {
 
-    @Test
-    void fail() {
-        Thing thing = new Thing();
-        String value = thing.callForAction();
-        assertEquals("Food", value);
+    interface Game {
+        void tick();
     }
 
     @Test
-    void it_should_not_fail() {
-        assertTrue(true);
+    void helloWorldGetsCalledFiveTimes() {
+        Object gameDriver = newGameDriver();
+        Game game = Mockito.mock(Game.class);
+        gameDriver.run(game);
+
+        Mockito.verify(game, Mockito.times(5));
     }
 }
