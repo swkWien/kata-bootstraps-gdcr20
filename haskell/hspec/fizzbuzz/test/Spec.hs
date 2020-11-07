@@ -3,6 +3,13 @@ import Test.QuickCheck
 import Lib (fizzBuzz)
 
 
+data CellState = DEAD | ALIVE deriving (Eq, Show)
+
+data Cell = Cell { state :: CellState }
+
+stateOf :: Cell -> CellState
+stateOf(Cell{state=s}) = s
+
 
 main :: IO ()
 main = hspec $ do
@@ -18,5 +25,8 @@ main = hspec $ do
   describe "other->shown" $ do
     it "if neither multiple of 3 nor 5 then number shall be shown" $ do
       property $ \x -> x`mod`3==0 || x`mod`5==0 || fizzBuzz x == show x
-
-
+  describe "Cells have states" $ do
+    it "A dead cell is dead" $ do
+      (stateOf Cell{state=DEAD} ) `shouldBe` DEAD
+    it "An alive cell is alive" $ do
+      (stateOf Cell{state=ALIVE} ) `shouldBe` ALIVE
