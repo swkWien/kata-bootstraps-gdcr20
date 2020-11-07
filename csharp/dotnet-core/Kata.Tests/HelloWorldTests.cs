@@ -13,7 +13,7 @@ namespace Kata.Tests
             var cell = world.GetCell();
             // Act
             var actual = world.FindLivingNeighborsOf(cell);
-            // Asseert
+            // Assert
             actual.Should().Be(0);
         }
     }
@@ -26,7 +26,7 @@ namespace Kata.Tests
     {
         internal int FindLivingNeighborsOf(Cell cell)
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
 
         internal Cell GetCell()
