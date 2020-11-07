@@ -1,4 +1,21 @@
 Peter Kofler
-Stefan P”lz
+Stefan PÃ¶lz
+
+Focus points
+* high risk
+* unclear features
+  * seeding
+* complex algorithm (find neigbors)
+
+Core elements
+* cells
+* status: alive/dead
+* find neighbors
+* seeding (how to start)
 
 Test List
+* find alive neighbors 0-8
+  * corner cases: finite / wrapped / infinite (sparse)
+* status for next iteration
+  * 4 rules
+  * 18 cases (0-8 neighbors, dead/alive)
