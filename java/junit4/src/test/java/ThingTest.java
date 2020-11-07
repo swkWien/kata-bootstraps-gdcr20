@@ -36,8 +36,8 @@ public class ThingTest {
             }
 
             String o = "";
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
                     o += "_";
                 }
                 o += "\n";
@@ -62,7 +62,6 @@ public class ThingTest {
     }
 
     @Test
-    @Ignore
     public void shouldStartGameSize2() {
         GameMain main = new GameMain();
         String output = main.run("-tick=0 -size=2");
