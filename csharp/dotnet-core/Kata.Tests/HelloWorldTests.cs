@@ -21,7 +21,7 @@ namespace Kata.Tests
         public void FindNeighbors_OneLivingNeighbors_One()
         {
             // Arrange
-            var seed = new Seed().living((1,1)) // value tuples c# 7
+            var seed = new Seed().Living((1, 1)); // value tuples c# 7
             var world = new World(seed);
             var cell = world.GetCell((0,0));
             // Act
@@ -31,28 +31,32 @@ namespace Kata.Tests
         }
     }
 
-    class Cell
+    internal class Cell
     {
     }
 
-    class World
+    internal class World
     {
+        public World(Seed seed)
+        {
+        }
+
         internal int FindLivingNeighborsOf(Cell cell)
         {
             return 0;
         }
 
-        internal Cell GetCell((int x, int y))
+        internal Cell GetCell((int x, int y) location)
         {
             return new Cell();
         }
     }
 
-    class Seed
+    internal class Seed
     {
-        void living(params (int x, int y)[] livingCoordinates)
+        internal Seed Living(params (int x, int y)[] livingCoordinates)
         {
-
+            return this;
         }
     }
 }
