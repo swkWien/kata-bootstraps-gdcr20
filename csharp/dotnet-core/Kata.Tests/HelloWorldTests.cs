@@ -18,6 +18,7 @@ namespace Kata.Tests
             actual.Should().Be(0);
         }
 
+        [Fact]
         public void FindNeighbors_OneLivingNeighbors_One()
         {
             // Arrange
