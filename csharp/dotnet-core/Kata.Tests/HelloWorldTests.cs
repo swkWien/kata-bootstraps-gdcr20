@@ -6,14 +6,28 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         [Fact]
-        public void SayHelloWorld_ShouldReturnHelloWorld()
+        public void SingleCellUniverse_CellIsDead()
         {
             // Arrange
-            var sut = new HelloWorld();
+            var universe = new Universe(1, 1);
+
             // Act
-            var actual = sut.SayHelloWorld();
-            // Asseert
-            actual.Should().Be("Oh oh...");
+            var cell = universe.GetCell(1, 1);
+
+            // Assert
+            cell.IsAlive.Should().BeFalse();
+        }
+
+        [Fact]
+        public void LivingCell_NoNeightbors_DiesNextIteration()
+        {
+            // Arrange
+            var universe = new Universe(1, 1);
+
+            // Act
+
+            // Assert
+
         }
     }
 }

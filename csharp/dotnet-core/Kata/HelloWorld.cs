@@ -1,10 +1,30 @@
-﻿namespace Kata
+﻿using System;
+
+namespace Kata
 {
     public class HelloWorld
     {
-        public string SayHelloWorld()
+    }
+
+    public class Universe
+    {
+        public Universe(int width, int height)
         {
-            return "Hello World!";
+
+        }
+
+        public Cell GetCell(int x, int y)
+        {
+            return new Cell();
+        }
+    }
+
+    public class Cell
+    {
+        public bool IsAlive { get; }
+
+        public Cell()
+        {
         }
     }
 }
