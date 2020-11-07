@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.stream.Stream;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ThingTest {
@@ -17,6 +18,13 @@ public class ThingTest {
             }
             String[] args = string.split(" ");
 
+            int size = Stream.of(args). //
+                    filter(a -> a.startsWith("-size=")). //
+                    map(a -> a.substring("-size=".length())). //
+                    map(Integer::parseInt). //
+                    findFirst(). //
+                    get();
+
             long c = Stream.of(args). //
                     filter(a -> a.startsWith("-seed=")). //
                     map(a -> a.substring(6)). //
@@ -27,7 +35,14 @@ public class ThingTest {
                 return "___\n_x_\n___\n";
             }
 
-            return "___\n___\n___\n";
+            String o = "";
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    o += "_";
+                }
+                o += "\n";
+            }
+            return o;
         }
 
     }
@@ -40,10 +55,18 @@ public class ThingTest {
     }
 
     @Test
-    public void shouldStartGame() {
+    public void shouldStartGameSize3() {
         GameMain main = new GameMain();
         String output = main.run("-tick=0 -size=3");
         assertEquals("___\n___\n___\n", output);
+    }
+
+    @Test
+    @Ignore
+    public void shouldStartGameSize2() {
+        GameMain main = new GameMain();
+        String output = main.run("-tick=0 -size=2");
+        assertEquals("__\n__\n", output);
     }
 
     // size 4
