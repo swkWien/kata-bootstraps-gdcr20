@@ -14,7 +14,7 @@ public class ThingTest {
                 return version + "\n";
             }
             
-            throw new UnsupportedOperationException();
+            return "___\n___\n___\n";
         }
 
     }
@@ -24,5 +24,12 @@ public class ThingTest {
         GameMain main = new GameMain();
         String output = main.run("-v");
         assertEquals("Game of Live 1.0\n", output);
+    }
+
+    @Test
+    public void shouldStartGame() {
+        GameMain main = new GameMain();
+        String output = main.run("-start -tick 0 -size 3");
+        assertEquals("___\n___\n___\n", output);
     }
 }
