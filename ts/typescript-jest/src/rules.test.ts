@@ -40,14 +40,17 @@ it('a cell updates itself', (cb) => {
 })
 
 class Grid {
+    private cell: Cell;
     public countLivingNeighboursAt(x: number, y: number, cb: (neighboursCount: number) => void) {
         cb(0)
     }
 
     public put(x: number, y: number, cell: Cell) {
+        this.cell = cell;
     }
 
     public eachCell(body: (c: Cell) => void) {
+        body(this.cell)
 
     }
 }
