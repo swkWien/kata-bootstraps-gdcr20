@@ -1,3 +1,6 @@
+CR #gdcr2020 1st session
+* focus on tests
+
 Peter Kofler
 Stefan Pölz
 
@@ -5,7 +8,7 @@ Focus points
 * high risk
 * unclear features
   * seeding
-* complex algorithm (find neigbors)
+* complex algorithm (find neighbors)
 
 Core elements
 * cells
