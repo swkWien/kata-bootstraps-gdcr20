@@ -8,6 +8,7 @@ enum CellState {
 }
 
 it('a cell without neighbours dies', (cb) => {
+    // 1. start rules
     applyRules(CellState.Alive, 0, (nextCellState) => {
         expect(nextCellState).toEqual(CellState.Dead);
         cb();
@@ -29,6 +30,7 @@ class Cell {
 }
 
 it('a cell updates itself', (cb) => {
+    // 2. what is callback for rules
     const cell = new Cell(CellState.Alive)
     cell.update(CellState.Dead)
     cell.print((nextCellState) => {
@@ -37,19 +39,38 @@ it('a cell updates itself', (cb) => {
     })
 })
 
-
 class Grid {
-
-    countNeighboursAt(x: number, y: number, cb: (neighboursCount: number) => void) {
+    public countLivingNeighboursAt(x: number, y: number, cb: (neighboursCount: number) => void) {
         cb(0)
+    }
+
+    public put(x: number, y: number, cell: Cell) {
+    }
+
+    public eachCell(body: (c: Cell) => void) {
+
     }
 }
 
 it('counts neighbours', cb => {
+    // 3. where do neighbours come from
     const grid = new Grid();
 
-    grid.countNeighboursAt(0, 0, (neighboursCount: number) => {
+    grid.countLivingNeighboursAt(0, 0, (neighboursCount: number) => {
         expect(neighboursCount).toEqual(0)
+        cb()
+    });
+})
+
+// 4. what is callback of countNeighboursAt
+
+it('grid should contain cells', cb => {
+    const grid = new Grid();
+    const cell = new Cell(CellState.Alive);
+    grid.put(0, 0, cell);
+
+    grid.eachCell((c: Cell) => {
+        expect(c).toBe(cell);
         cb()
     });
 })
