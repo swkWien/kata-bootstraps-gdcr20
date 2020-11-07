@@ -17,11 +17,16 @@ namespace Kata
         {
             return new Cell();
         }
+
+        public void nextIteration()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Cell
     {
-        public bool IsAlive { get; }
+        public bool IsAlive { get; set; }
 
         public Cell()
         {

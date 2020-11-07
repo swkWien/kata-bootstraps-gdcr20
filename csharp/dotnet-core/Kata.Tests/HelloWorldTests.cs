@@ -19,15 +19,19 @@ namespace Kata.Tests
         }
 
         [Fact]
-        public void LivingCell_NoNeightbors_DiesNextIteration()
+        public void TwoCellUniverse_NoLivingNeighbor_DiesNextIteration()
         {
             // Arrange
-            var universe = new Universe(1, 1);
+            var universe = new Universe(2, 1);
+            universe.GetCell(2, 1).IsAlive = true;
 
             // Act
 
+            universe.nextIteration();
+
             // Assert
 
+            universe.GetCell(2, 1).IsAlive.Should().BeFalse();
         }
     }
 }
