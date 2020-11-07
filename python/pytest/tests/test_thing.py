@@ -31,3 +31,7 @@ def test_living_cell_with_two_living_neighbours_stays():
     tick(field)
 
     assert field[5][5]
+
+# wir kennen uns aus, deswegen koennen wir sehr high level sprechen
+# vielleicht schaffen wir das gar nicht, es unterscheidet sich nicht
+# viel von dem wie wir sonst arbeiten würden
