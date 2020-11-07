@@ -9,10 +9,16 @@ def tick(field):
         field[x][y] = False
 
 
-def test_living_cell_with_no_living_neighbours_dies():
+def create_field(*living_cells):
     column = [False] * 10
     field = [column] * 10
-    field[5][5] = True
+    for x,y in living_cells:
+        field[x][y] = True
+    return field
+
+
+def test_living_cell_with_no_living_neighbours_dies():
+    field = create_field((5,5))
 
     tick(field)
 
@@ -20,12 +26,7 @@ def test_living_cell_with_no_living_neighbours_dies():
 
 
 def test_living_cell_with_two_living_neighbours_stays():
-    column = [False] * 10
-    field = [column] * 10
-
-    field[5][5] = True
-    field[5][6] = True
-    field[6][5] = True
+    field = create_field((5,5), (5,6), (6,5))
 
     tick(field)
 
