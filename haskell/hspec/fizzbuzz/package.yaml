@@ -47,4 +47,5 @@ tests:
     dependencies:
     - fizzbuzz
     - hspec
+    - matrix
     - QuickCheck

@@ -1,3 +1,4 @@
+import Data.Matrix
 import Test.Hspec
 import Test.QuickCheck
 import Lib (fizzBuzz)
@@ -9,6 +10,9 @@ data Cell = Cell { state :: CellState }
 
 stateOf :: Cell -> CellState
 stateOf(Cell{state=s}) = s
+
+
+type Grid = Matrix Cell
 
 
 main :: IO ()
