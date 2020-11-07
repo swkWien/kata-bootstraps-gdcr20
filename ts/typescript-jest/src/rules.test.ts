@@ -15,12 +15,15 @@ it('a cell without neighbours dies', (cb) => {
 })
 
 class Cell {
-    constructor(private state: CellState){}
+    constructor(private state: CellState) {
+    }
+
     public update(newState: CellState) {
         this.state = newState;
     }
+
     public print(printer: (nextCellState: CellState) => void) {
-        // printer(this.state);
+        printer(this.state);
     }
 
 }
@@ -32,4 +35,21 @@ it('a cell updates itself', (cb) => {
         expect(nextCellState).toEqual(CellState.Dead);
         cb();
     })
+})
+
+
+class Grid {
+
+    countNeighboursAt(x: number, y: number, cb: (neighboursCount: number) => void) {
+        cb(0)
+    }
+}
+
+it('counts neighbours', cb => {
+    const grid = new Grid();
+
+    grid.countNeighboursAt(0, 0, (neighboursCount: number) => {
+        expect(neighboursCount).toEqual(0)
+        cb()
+    });
 })
