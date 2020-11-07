@@ -12,21 +12,29 @@ def tick(field):
 def create_field(*living_cells):
     column = [False] * 10
     field = [column] * 10
-    for x,y in living_cells:
+    for x, y in living_cells:
         field[x][y] = True
     return field
 
 
 def test_living_cell_with_no_living_neighbours_dies():
-    field = create_field((5,5))
+    field = create_field((5, 5))
 
     tick(field)
 
     assert not field[5][5]
 
 
+def test_living_cell_with_no_living_neighbours_dies_with_others_not_nearby():
+    field = create_field((2, 2), (5, 6), (6, 5))
+
+    tick(field)
+
+    assert not field[2][2]
+
+
 def test_living_cell_with_two_living_neighbours_stays():
-    field = create_field((5,5), (5,6), (6,5))
+    field = create_field((5, 5), (5, 6), (6, 5))
 
     tick(field)
 
