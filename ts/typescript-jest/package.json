@@ -4,19 +4,21 @@
   "license": "MIT",
   "author": "Charles Ahmadzadeh <superzadeh@outlook.com>",
   "scripts": {
+    "test:watch": "jest --watchAll",
     "test": "yarn lint && yarn compile && cross-env NODE_ENV=test jest",
     "test:ci": "yarn test --ci --maxWorkers=2 --verbose --coverage",
     "test:cover": "yarn test --coverage",
     "test:changed": "yarn test --watch",
     "test:update": "yarn test -u",
-    "test:watch": "yarn test --watchAll",
     "lint": "yarn lint:ts",
     "lint:ts": "tslint src/**/*.ts",
     "compile": "yarn lint && yarn compile:ts",
     "compile:watch": "yarn compile:ts -w",
     "compile:ts": "tsc --project tsconfig.json"
   },
-  "dependencies": {},
+  "dependencies": {
+    "yarn": "^1.22.10"
+  },
   "devDependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.8",

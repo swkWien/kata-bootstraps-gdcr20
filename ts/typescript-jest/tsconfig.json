@@ -2,7 +2,7 @@
   "compileOnSave": true, // currently supported in Visual Studio 2015 with TypeScript 1.8.4 and above, and atom-typescript plugin.
   "compilerOptions": {
     "allowJs": true,
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
     "removeComments": true,
     "preserveConstEnums": true,
