@@ -15,5 +15,23 @@ namespace Kata.Tests
             // Assert
             actual.Should().Be("Oh oh...");
         }
+
+        [Fact]
+        public void Cell_survives_when_it_has_2_living_neighbours()
+        {
+            Cell cell = new Cell();
+            int numberOfLivingNeighbours = 2;
+            var result = CellSurvives(cell, numberOfLivingNeighbours);
+            result.Should().BeTrue();
+        }
+
+        private bool CellSurvives(Cell cell, in int numberOfLivingNeighbours)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    public class Cell
+    {
     }
 }
