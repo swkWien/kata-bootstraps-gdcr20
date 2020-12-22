@@ -1,0 +1,4 @@
+- Create test to verify board generation
+- Create test to verify dying/resurrecting/staying alive behaviour
+- Create test to verify if the game is over
+- Create test to verify position
