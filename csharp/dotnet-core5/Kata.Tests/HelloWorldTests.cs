@@ -4,18 +4,7 @@ using Xunit;
 namespace Kata.Tests
 {
     public class HelloWorldTests
-    {   
-        [Fact]
-        public void SayHelloWorld_ShouldReturnHelloWorld()
-        {
-            // Arrange
-            var sut = new HelloWorld();
-            // Act
-            var actual = sut.SayHelloWorld();
-            // Assert
-            actual.Should().Be("Oh oh...");
-        }
-
+    {
         [Fact]
         public void Cell_survives_when_it_has_2_living_neighbours()
         {
@@ -25,9 +14,18 @@ namespace Kata.Tests
             result.Should().BeTrue();
         }
 
+        [Fact]
+        public void Cell_dies_when_it_has_1_living_neighbour()
+        {
+            Cell cell = new Cell();
+            int numberOfLivingNeighbours = 1;
+            var result = CellSurvives(cell, numberOfLivingNeighbours);
+            result.Should().BeFalse("Should die with less than 2 living neighbours");
+        }
+
         private bool CellSurvives(Cell cell, in int numberOfLivingNeighbours)
         {
-            throw new System.NotImplementedException();
+            return true;
         }
     }
 
