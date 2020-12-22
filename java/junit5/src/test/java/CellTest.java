@@ -5,14 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CellTest {
 
     @Test
-    void it_should_not_fail() {
-        assertTrue(true);
+    void cell_is_alive(){
+        Cell cell = new Cell(0,0,true);
+        assertTrue(cell.getIsAlive());
     }
 
     @Test
-    void cell_should_check_if_it_alive(){
-        Cell cell = new Cell(0,0,true);
-        assertEquals(true, cell.getIsAlive());
+    void cell_is_not_alive(){
+        Cell cell = new Cell(0,0,false);
+        assertFalse(cell.getIsAlive());
     }
 
 }
