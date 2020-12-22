@@ -15,6 +15,4 @@ public class CellTest {
         assertEquals(true, cell.getIsAlive());
     }
 
-
-
 }
