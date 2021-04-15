@@ -23,6 +23,13 @@ We aim for OO.
 """
 from app.game import Game
 
+
 def test_game_without_arguments_does_not_hold_any_cells():
     game = Game()
     assert game.cells == {}
+
+
+def test_game_can_evolve():
+    game = Game()
+    new_game = game.evolve()
+
