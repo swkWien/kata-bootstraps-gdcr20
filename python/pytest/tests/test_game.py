@@ -21,7 +21,7 @@ Build the system outside in, starting with (overly) simplified
 inputs.
 We aim for OO.
 """
-
+from app.game import Game
 
 def test_game_without_arguments_does_not_hold_any_cells():
     game = Game()
