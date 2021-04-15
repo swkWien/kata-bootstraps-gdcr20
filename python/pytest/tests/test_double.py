@@ -1,5 +1,5 @@
 from app.some_service import interact_with_service, SomeService
-from pytest_mock import mock, MockerFixture
+from pytest_mock import mocker, MockerFixture
 
 #   TestDouble concept and few useful references for pytest-mock package
 #   - https://martinfowler.com/bliki/TestDouble.html
@@ -47,15 +47,15 @@ def test_stub_using_pytest(mocker):
 #
 
 
-@mock.patch('app.some_service.SomeService.service_call')
 def test_mock_service_call_class(mocker: MockerFixture) -> None:
+    mocker.patch('app.some_service.SomeService.service_call')
     rpc = SomeService()
     rpc.service_call(-135)
     SomeService.service_call.assert_called_with(-135)
 
 
-@mock.patch('app.some_service.SomeService.service_call')
 def test_mock_service_call_function(mocker: MockerFixture) -> None:
+    mocker.patch('app.some_service.SomeService.service_call')
     rpc = SomeService()
     interact_with_service(rpc, 100500)
     SomeService.service_call.assert_called_once_with(100500)
