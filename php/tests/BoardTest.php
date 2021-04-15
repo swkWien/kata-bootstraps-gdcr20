@@ -7,7 +7,7 @@ use swkberlin\Kata;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-class KataTest extends TestCase
+class BoardTest extends TestCase
 {
 
 
