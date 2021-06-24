@@ -14,11 +14,22 @@ public class Game {
             throw new IllegalArgumentException();
         }
         ArrayList<Field> fields = new ArrayList<>();
-        fields.add(new Field() {});
+        for (int i = 0; i < n * m; i++) {
+            fields.add(new Field() {
+                @Override
+                public String getType() {
+                    return "empty";
+                }
+            });
+        }
         return fields;
     }
 
     public List<Field> getFields() {
         return fields;
+    }
+
+    public Field fieldAt(int n, int m) {
+        return this.fields.get(0);
     }
 }
