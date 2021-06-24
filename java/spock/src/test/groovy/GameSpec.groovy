@@ -19,4 +19,12 @@ class GameSpec extends Specification {
 
     }
 
+    def "A game size cannot be smaller than 1"() {
+        when:
+        new Game(0, 0)
+
+        then:
+        thrown(IllegalArgumentException)
+    }
+
 }
