@@ -1,27 +1,25 @@
-import Game.Game;
+import Game.SnakeAsciiArtConsoleGame;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class SnakeTest {
 
     @Test
     void initial_game_view() {
-        Game game = new Game();
+        var game = new SnakeAsciiArtConsoleGame();
 
         game.start();
 
-        Approvals.verify(game.view());
+        Approvals.verify(game.asciiArtRepresentation());
     }
 
     @Test
     void game_after_one_tick() {
-        Game game = new Game();
+        var game = new SnakeAsciiArtConsoleGame();
         game.start();
 
         game.tick();
 
-        Approvals.verify(game.view());
+        Approvals.verify(game.asciiArtRepresentation());
     }
 }
