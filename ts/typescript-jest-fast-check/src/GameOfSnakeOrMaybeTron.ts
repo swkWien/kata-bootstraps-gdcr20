@@ -5,4 +5,8 @@ export class GameOfSnakeOrMaybeTron {
     constructor(initialSnakeHeadPosition: number[]) {
         this.snakeHeadPosition = initialSnakeHeadPosition
     }
+
+    public moveSnakeHeadPosition() {
+        this.snakeHeadPosition = [2, 1]
+    }
 }
