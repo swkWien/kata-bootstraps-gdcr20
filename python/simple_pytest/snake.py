@@ -1,4 +1,5 @@
-"""Dummy module"""
+"""Snake module"""
 
-def foo(x):
-    return x + 1
+
+class Snake:
+    pass
