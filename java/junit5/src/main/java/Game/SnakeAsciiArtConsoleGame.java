@@ -3,23 +3,21 @@ package Game;
 public class SnakeAsciiArtConsoleGame {
 
   private final Arena arena;
-  private int snakeRow;
-  private int snakeColumn;
+  private final Snake snake;
 
-  public SnakeAsciiArtConsoleGame(Arena arena) {
+  public SnakeAsciiArtConsoleGame(Arena arena, Snake snake) {
     this.arena = arena;
+    this.snake = snake;
   }
 
   public void start() {
-    snakeRow = 1;
-    snakeColumn = 1;
   }
 
   public String asciiArtRepresentation() {
     StringBuilder strb = new StringBuilder();
     for (int row = 0; row < arena.height(); row++) {
       for (int column = 0; column < arena.width(); column++) {
-        if (row == snakeRow && column == snakeColumn) {
+        if (row == snake.row() && column == snake.column()) {
           strb.append("x");
         } else {
           strb.append("-");
@@ -31,6 +29,6 @@ public class SnakeAsciiArtConsoleGame {
   }
 
   public void tick() {
-    snakeColumn = snakeColumn + 1;
+    snake.move();
   }
 }

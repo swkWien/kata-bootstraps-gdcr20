@@ -1,4 +1,5 @@
 import Game.Arena;
+import Game.Snake;
 import Game.SnakeAsciiArtConsoleGame;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +11,7 @@ public class OutsideInGameTest {
 
     @BeforeEach
     void setUp() {
-        game = new SnakeAsciiArtConsoleGame(new Arena());
+        game = new SnakeAsciiArtConsoleGame(new Arena(), new Snake());
 
         game.start();
     }
