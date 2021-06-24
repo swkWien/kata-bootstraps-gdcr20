@@ -1,17 +1,16 @@
+import each from 'jest-each'
 import {GameOfSnakeOrMaybeTron} from './GameOfSnakeOrMaybeTron'
 
 describe('Game of Snake', () => {
-    it('should return position of snake 5/5', () => {
-        const gameOfSnakeOrMaybeTron = new GameOfSnakeOrMaybeTron([5, 5])
-        const actualSnakeHeadPosition = gameOfSnakeOrMaybeTron.snakeHeadPosition
-        const expectedSnakeHeadPosition = [5, 5]
-        expect(actualSnakeHeadPosition).toEqual(expectedSnakeHeadPosition)
-    })
-    it('should return position of snake 10/10', () => {
-        const gameOfSnakeOrMaybeTron = new GameOfSnakeOrMaybeTron([10, 10])
-        const actualSnakeHeadPosition = gameOfSnakeOrMaybeTron.snakeHeadPosition
-        const expectedSnakeHeadPosition = [10, 10]
-        expect(actualSnakeHeadPosition).toEqual(expectedSnakeHeadPosition)
-    })
+    each([
+        [5, 5],
+        [10, 10],
+    ]).test('should return position of snake %d/%d',
+        (theFirstDimension: number, theSecondDimension: number) => {
+            const theSnakeHeadPosition = [theFirstDimension, theSecondDimension]
+            const gameOfSnakeOrMaybeTron = new GameOfSnakeOrMaybeTron(theSnakeHeadPosition)
+            const actualSnakeHeadPosition = gameOfSnakeOrMaybeTron.snakeHeadPosition
+            expect(actualSnakeHeadPosition).toEqual(theSnakeHeadPosition)
+        })
 
 })

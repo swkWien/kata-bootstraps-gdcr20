@@ -16,7 +16,9 @@
     "compile:watch": "yarn compile:ts -w",
     "compile:ts": "tsc --project tsconfig.json"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jest-each": "^27.0.2"
+  },
   "devDependencies": {
     "@types/jest": "24.0.23",
     "@types/node": "12.12.8",
