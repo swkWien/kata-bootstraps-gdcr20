@@ -10,9 +10,6 @@ public class SnakeAsciiArtConsoleGame {
     this.snake = snake;
   }
 
-  public void start() {
-  }
-
   public String asciiArtRepresentation() {
     StringBuilder strb = new StringBuilder();
     for (int row = 0; row < arena.height(); row++) {

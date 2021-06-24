@@ -12,8 +12,6 @@ public class OutsideInGameTest {
     @BeforeEach
     void setUp() {
         game = new SnakeAsciiArtConsoleGame(new Arena(), new Snake());
-
-        game.start();
     }
 
     @Test
