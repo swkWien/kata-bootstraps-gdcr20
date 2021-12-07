@@ -1,0 +1,9 @@
+- Game is either running or we are game over
+- Snake is moving in one direction
+- Snake can change direction
+- Snake can collide with itself (game over)
+- Snake can collide with a border (game over)
+- Snake can collide with food (growths snake)
+- Snake only grows when it eats
+- Game is played with constant speed
+- When snake eats an apple score is increased
