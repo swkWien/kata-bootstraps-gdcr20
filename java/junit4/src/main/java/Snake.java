@@ -1,14 +1,14 @@
 public class Snake {
-  private int direction = 0;
+  private Direction direction = Direction.UP;
 
   public Snake() {
   }
 
-  public int getDirection() {
+  public Direction getDirection() {
     return direction;
   }
 
-  public void setDirection(int direction) {
-
+  public void setDirection(Direction direction) {
+    this.direction = direction;
   }
 }

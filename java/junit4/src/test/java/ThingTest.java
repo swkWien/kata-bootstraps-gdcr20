@@ -19,11 +19,4 @@ public class ThingTest {
     assertTrue(true);
   }
 
-  @Test
-  public void setDirectonTest() {
-    Snake snake = new Snake();
-    snake.setDirection(1);
-
-    assertEquals(snake.getDirection(), 1);
-  }
 }
