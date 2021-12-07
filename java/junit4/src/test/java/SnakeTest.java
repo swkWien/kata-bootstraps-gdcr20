@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -15,5 +16,11 @@ public class SnakeTest {
     snake.setDirection(Direction.RIGHT);
 
     assertEquals(snake.getDirection(), Direction.RIGHT);
+  }
+
+  @Test
+  public void cannot_change_direction_180_degrees() {
+    Snake snake = new Snake();
+    assertThat(snake.setDirection(Direction.DOWN)).isFalse();
   }
 }

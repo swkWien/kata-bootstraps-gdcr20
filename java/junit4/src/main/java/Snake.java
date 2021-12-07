@@ -8,7 +8,8 @@ public class Snake {
     return direction;
   }
 
-  public void setDirection(Direction direction) {
+  public boolean setDirection(Direction direction) {
     this.direction = direction;
+    return true;
   }
 }
