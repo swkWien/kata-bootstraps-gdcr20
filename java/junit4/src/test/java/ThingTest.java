@@ -1,6 +1,10 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/*
+1. Snake direction
+2. Moving and check resulting coordinates
+ */
 public class ThingTest {
 
     @Test
