@@ -19,8 +19,17 @@ public class SnakeTest {
   }
 
   @Test
-  public void cannot_change_direction_180_degrees() {
+  public void cannotChangeDirection180Degrees() {
     Snake snake = new Snake();
     assertThat(snake.setDirection(Direction.DOWN)).isFalse();
+  }
+
+  @Test
+  public void moveSnakeTest() {
+    Snake snake = new Snake();
+    snake.setDirection(Direction.RIGHT);
+    snake.moveTick();
+    assertThat(snake.getHeadPosX()).isEqualTo(26);
+    assertThat(snake.getHeadPosY()).isEqualTo(25);
   }
 }
