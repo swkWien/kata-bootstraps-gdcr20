@@ -11,10 +11,7 @@ public class Snake {
   }
 
   public boolean setDirection(Direction newDirection) {
-    if ((this.direction == Direction.UP && newDirection == Direction.DOWN)
-        || (this.direction == Direction.RIGHT && newDirection == Direction.LEFT)
-        || (this.direction == Direction.DOWN && newDirection == Direction.UP)
-        || (this.direction == Direction.LEFT && newDirection == Direction.RIGHT)) {
+    if (this.direction.isInvalidTo(newDirection)) {
       return false;
     }
     this.direction = newDirection;
@@ -30,6 +27,8 @@ public class Snake {
   }
 
   public void moveTick() {
-
+    if (direction == Direction.RIGHT) {
+      headPosX++;
+    }
   }
 }
