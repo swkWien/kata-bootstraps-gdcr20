@@ -14,13 +14,16 @@ public class Snake extends ArrayDeque<Square> {
   public void push(Square newSquare) throws InvalidDirectionException {
 
     Square prev = peek();
-    if (checkAllowedDirection(newSquare, prev)) {
+    if (!checkAllowedDirection(newSquare, prev)) {
       throw new InvalidDirectionException();
     }
     super.push(newSquare);
   }
 
   private boolean checkAllowedDirection(Square newSquare, Square prev) {
+    if (prev == null) {
+      return true;
+    }
     return !newSquare.getDirection().equals(Util.getOppositeDirection(prev.getDirection()));
   }
 }
