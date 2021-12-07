@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class Position {
+public class Position {
+
+  public Position(int x, int y) {
+  }
 }
