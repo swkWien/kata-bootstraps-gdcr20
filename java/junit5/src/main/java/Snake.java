@@ -11,17 +11,16 @@ public class Snake extends ArrayDeque<Square> {
   }
 
   @Override
-  public void push(Square o) {
-    Set<String> directions = new HashSet<>();
-    directions.add(o.getDirection());
+  public void push(Square newSquare) throws InvalidDirectionException {
+
     Square prev = peek();
-    directions.add(prev == null ? "" : prev.getDirection());
-    Set<String> forbidden = new HashSet<>();
-    forbidden.add("Up");
-    forbidden.add("Down");
-    if (directions.containsAll(forbidden)) {
+    if (checkAllowedDirection(newSquare, prev)) {
       throw new InvalidDirectionException();
     }
-    super.push(o);
+    super.push(newSquare);
+  }
+
+  private boolean checkAllowedDirection(Square newSquare, Square prev) {
+    return !newSquare.getDirection().equals(Util.getOppositeDirection(prev.getDirection()));
   }
 }
