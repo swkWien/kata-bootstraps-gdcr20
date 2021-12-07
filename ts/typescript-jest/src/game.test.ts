@@ -1,3 +1,4 @@
+import {Direction} from './direction'
 import {Game} from "./game";
 
 describe('games', () => {
@@ -10,5 +11,13 @@ describe('games', () => {
         const game = new Game();
         game.gameOver();
         expect(game.isRunning()).toBe(false)
+    })
+})
+
+describe('snake', () => {
+    it('should have direction', () => {
+        const snake = new Snake();
+
+        expect(snake.direction).toBe(Direction.left);
     })
 })
