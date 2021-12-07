@@ -1,4 +1,8 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,5 +18,13 @@ public class ThingTest {
     @Test
     void it_should_not_fail() {
         assertTrue(true);
+    }
+
+    @Test
+    void snakeHasNoOppositeDirectionsOnConsecutiveSquares() {
+        Snake<Square> snake = new Snake<>(5);
+        snake.push(new Square("Up"));
+        snake.push(new Square("Up"));
+        Assertions.assertThrows(InvalidDirectionException.class, () -> snake.push(new Square("Down")));
     }
 }
