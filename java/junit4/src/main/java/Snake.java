@@ -1,14 +1,18 @@
-import java.sql.ResultSet;
-
 public class Snake {
-    public Snake(Coordinates coordinates) {
-
+    private Shape shape;
+    public Snake(Shape shape) {
+        this.shape = shape;
     }
 
     public void up() {
+//        coordinates = coordinates.up();
     }
 
-    public Coordinates getPosition() {
+    public Coordinates getHeadPosition() {
+        return null;
+    }
+
+    public Object getShape() {
         return null;
     }
 }
