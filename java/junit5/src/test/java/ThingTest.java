@@ -23,8 +23,8 @@ public class ThingTest {
     @Test
     void snakeHasNoOppositeDirectionsOnConsecutiveSquares() {
         Snake snake = new Snake(5);
-        snake.push(new Square("Up"));
-        snake.push(new Square("Up"));
-        Assertions.assertThrows(InvalidDirectionException.class, () -> snake.push(new Square("Down")));
+        snake.push(new Square("up"));
+        snake.push(new Square("up"));
+        Assertions.assertThrows(InvalidDirectionException.class, () -> snake.push(new Square("down")));
     }
 }
