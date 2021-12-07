@@ -1,18 +1,19 @@
 public class Snake {
     private Shape shape;
+
     public Snake(Shape shape) {
         this.shape = shape;
     }
 
     public void up() {
-//        coordinates = coordinates.up();
+        shape.up();
     }
 
     public Coordinates getHeadPosition() {
-        return null;
+        return shape.first();
     }
 
-    public Object getShape() {
-        return null;
+    public Shape getShape() {
+        return shape;
     }
 }

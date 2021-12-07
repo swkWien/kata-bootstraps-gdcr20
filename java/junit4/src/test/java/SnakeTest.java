@@ -16,13 +16,15 @@ public class SnakeTest {
     public void longerSnake() {
         Shape shape = new Shape();
         shape.add(new Coordinates(1, 1));
-        shape.add(new Coordinates(1, 2));
+        shape.add(new Coordinates(2, 1));
         Snake snake = new Snake(shape);
+
         snake.up();
+
         assertThat(snake.getHeadPosition()).isEqualTo(new Coordinates(0,1));
         Shape expectedShape = new Shape();
-        shape.add(new Coordinates(0, 1));
-        shape.add(new Coordinates(1, 1));
-        assertThat(expectedShape).isEqualTo(snake.getShape());
+        expectedShape.add(new Coordinates(0, 1));
+        expectedShape.add(new Coordinates(1, 1));
+        assertThat(snake.getShape()).isEqualTo(expectedShape);
     }
 }

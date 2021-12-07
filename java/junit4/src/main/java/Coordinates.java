@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Coordinates {
 
@@ -29,5 +30,13 @@ public class Coordinates {
     @Override
     public int hashCode() {
         return Objects.hash(row, col);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Coordinates.class.getSimpleName() + "[", "]")
+                .add("row=" + row)
+                .add("col=" + col)
+                .toString();
     }
 }
