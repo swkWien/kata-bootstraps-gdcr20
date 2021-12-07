@@ -1,0 +1,2 @@
+public class SegmentTest {
+}
