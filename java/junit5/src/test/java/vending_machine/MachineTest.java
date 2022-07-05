@@ -1,20 +1,16 @@
 package vending_machine;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class MachineTest {
+
     Machine machine;
 
-
     @BeforeEach
-
     void setUp() {
         machine = new Machine();
     }
@@ -26,5 +22,10 @@ class MachineTest {
     @Test
     void given_FirstUse_ThenMachineIsInWelcomeState() {
         assertThat(machine.state).isInstanceOf(InsertCoin.class);
+    }
+
+    @Test
+    void given_FirstUse_ThenMessageIsInsertCoin() {
+        assertThat(machine.showMessage()).isEqualTo("INSERT COIN");
     }
 }
