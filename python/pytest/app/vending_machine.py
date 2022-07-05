@@ -4,9 +4,14 @@ class VendingMachine:
 
 
 class Products:
+    def __init__(self) -> None:
+        self._items = set()
+
     def __eq__(self, other):
         return True
+
     def add(self, product):
-        pass
+        self._items.add(product)
+
     def __len__(self):
-        return 1
+        return len(self._items)
