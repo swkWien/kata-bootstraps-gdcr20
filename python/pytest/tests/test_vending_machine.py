@@ -27,3 +27,5 @@ from app.vending_machine import VendingMachine
 
 def test_initialized_vending_machine():
     m = VendingMachine()
+
+

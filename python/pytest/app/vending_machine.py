@@ -1,6 +1,3 @@
 class VendingMachine:
-    def __init__(self, name):
-        self.name = name
-
-    def return_hello_name(self):
-        return "Hello " + self.name + "!"
+    def __init__(self):
+        ...
