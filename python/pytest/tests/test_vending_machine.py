@@ -22,7 +22,7 @@ Features
 * Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
 """
 
-from app.vending_machine import Products, VendingMachine
+from app.vending_machine import Product, Products, VendingMachine
 
 
 def test_vending_machine_has_products():
@@ -31,18 +31,23 @@ def test_vending_machine_has_products():
     assert m.products == products
 
 
-class Product:
-    def __init__(self, name: str) -> None:
-        self.name = name
+
+
+def test_product_equality():
+    product_a = Product('a')
+    another_product_a = Product('a')
+
+    assert product_a == another_product_a
 
 
 def test_products_are_different_if_they_contain_different_items():
     products1 = Products()
-    product = Product("a")
-    products1.add(product)
+    product_a = Product("a")
+    products1.add(product_a)
+
     products2 = Products()
-    p2 = Product("b")
-    products2.add(p2)
+    product_b = Product("b")
+    products2.add(product_b)
     assert products2 != products1
 
 

@@ -2,6 +2,11 @@ class VendingMachine:
     def __init__(self):
         self.products = Products()
 
+class Product:
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+
 
 class Products:
     def __init__(self) -> None:
