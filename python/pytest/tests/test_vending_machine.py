@@ -29,6 +29,7 @@ def test_initialized_vending_machine():
     m = VendingMachine()
 
 
-def test_vending_machine_has_product_list():
+def test_vending_machine_has_products():
     m = VendingMachine()
-    assert m.products == set()
+    products = Products()
+    assert m.products == products
