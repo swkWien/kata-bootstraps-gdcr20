@@ -26,6 +26,10 @@ class MachineTest {
 
     @Test
     void given_FirstUse_ThenMessageIsInsertCoin() {
-        assertThat(machine.showMessage()).isEqualTo("INSERT COIN");
+        Message message = new Message("INSERT COIN");
+        assertThat(machine.showMessage()).isEqualTo(message.toString());
     }
+
+
+
 }
