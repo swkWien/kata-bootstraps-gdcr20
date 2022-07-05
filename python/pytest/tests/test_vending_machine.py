@@ -21,8 +21,8 @@ Features
 * Sold out: if product is out of stock, display "SOLD OUT" for 5 seconds
 * Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
 """
-
-from app.vending_machine import Product, Products, VendingMachine
+import pytest
+from app.vending_machine import Product, ProductNotAvailable, Products, VendingMachine
 
 HAM = Product("ham")
 SPAM = Product("spam")
@@ -34,10 +34,16 @@ def test_vending_machine_has_products():
     assert machine.products == products
 
 
-def test_vending_machine_can_select_product():
+def test_can_select_product():
     machine = VendingMachine()
     selected_product = machine.select(HAM)
     assert selected_product == HAM
+
+
+def test_cannot_select_if_product_not_available():
+    machine = VendingMachine()
+    with pytest.raises(ProductNotAvailable):
+        machine.select(SPAM)
 
 
 def test_product_equality():

@@ -14,7 +14,10 @@ class VendingMachine:
         self.products = Products()
 
     def select(self, item: Product):
-        return item
+        if item == Product("ham"):
+            return item
+
+        raise ProductNotAvailable()
 
 
 class Products:
@@ -30,3 +33,7 @@ class Products:
 
     def __len__(self):
         return len(self._items)
+
+
+class ProductNotAvailable(Exception):
+    pass
