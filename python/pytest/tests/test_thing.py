@@ -36,9 +36,18 @@ def test_should_throw_error_for_invalid_coin():
 
 class Product(enum.Enum):
     cola = 100
+    chips = 50
+    candy = 65
+
 
 def product_prize(product: Product):
     return product.value
 
 def test_cola_product():
     assert product_prize(Product.cola) == 100
+
+def test_chips_price():
+    assert product_prize(Product.chips) == 50
+
+def test_candy_price():
+    assert product_prize(Product.candy) == 65
