@@ -31,4 +31,4 @@ def test_initialized_vending_machine():
 
 def test_vending_machine_has_product_list():
     m = VendingMachine()
-    assert m.products
+    assert m.products == set()
