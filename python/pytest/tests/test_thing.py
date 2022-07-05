@@ -31,3 +31,24 @@ from app.thing import Thing
 def test_fail():
     thing = Thing("Albert")
     assert "Hello Albert!" == thing.return_hello_name()
+
+
+def buy_product(product):
+    return (product, 0)
+
+
+# state = set_inventory(("Cola", 1), "Candy", ...)
+# select = accept_coins("Quarter")
+# buy = select("Cola")
+# select = buy()
+
+
+def test_buy_a_cola():
+    product = buy_product("Cola")
+    (item, change) = product
+    assert "Cola" == item
+
+
+def test_buy_a_candy():
+    (item, change) = buy_product("Candy")
+    assert "Candy" == item
