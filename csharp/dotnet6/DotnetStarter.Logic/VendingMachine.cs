@@ -2,7 +2,7 @@ namespace DotnetStarter.Logic.Tests;
 
 public class VendingMachine
 {
-    public VendingMachine()
+    public VendingMachine(IDisplay display)
     {
     }
 

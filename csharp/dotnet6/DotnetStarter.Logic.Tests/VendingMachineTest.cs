@@ -18,6 +18,10 @@ namespace DotnetStarter.Logic.Tests
             Assert.Equal(0, machine.Money);
         }
 
-        public static VendingMachine CreateVendingMachine() => new();
+        public static VendingMachine CreateVendingMachine() => new(new DisplayMock());
+    }
+
+    public class DisplayMock : IDisplay
+    {
     }
 }
