@@ -22,14 +22,15 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest, macOS-latest,  windows-latest ]
-        java: [ 1.8, 10, 11, 12, 13, 15, 16 ]
+        java: [ 8, 11, 16, 17 ]
     name: Java ${{ matrix.java }} Build on ${{ matrix.operating-system }}
 
     steps:
       - uses: actions/checkout@v2
       - name: Setup java
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2.5.0
         with:
+          distribution: 'temurin'
           java-version: ${{ matrix.java }}
 
       - name: Cache gradle wrapper
@@ -57,7 +58,7 @@ jobs:
       #### END cucumber
 
       #### BEGIN fitnesse
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/fitnesse
           gradle-version: current
@@ -75,7 +76,7 @@ jobs:
         run: ./gradlew test --warning-mode all --tests ThingTest.it_should_not_fail
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/hamcrest
           gradle-version: current
@@ -96,7 +97,7 @@ jobs:
         run: ./gradlew test --warning-mode all --tests ThingTest.it_should_not_fail
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/hue4j5
           gradle-version: current
@@ -118,7 +119,7 @@ jobs:
         run: ./gradlew test --warning-mode all
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/jqwik
           gradle-version: current
@@ -135,7 +136,7 @@ jobs:
         run: ./gradlew test --warning-mode all --tests ThingTest.it_should_not_fail
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/junit4
           gradle-version: current
@@ -157,7 +158,7 @@ jobs:
         run: ./gradlew test --warning-mode all --tests ThingTest.it_should_not_fail
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/junit5
           gradle-version: current
@@ -188,7 +189,7 @@ jobs:
         run: ./gradlew test --warning-mode all --tests ThingTest.it_should_not_fail
 
       # gradle:
-      - uses: eskatos/gradle-command-action@v1
+      - uses: eskatos/gradle-command-action@v2.1.3
         with:
           build-root-directory: java/truth
           gradle-version: current
