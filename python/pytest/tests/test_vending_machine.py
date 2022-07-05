@@ -33,3 +33,8 @@ def test_vending_machine_has_products():
     m = VendingMachine()
     products = Products()
     assert m.products == products
+
+
+def test_products_can_take_product():
+    products = Products()
+    products.add()
