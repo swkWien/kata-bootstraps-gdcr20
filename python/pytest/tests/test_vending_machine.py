@@ -31,12 +31,9 @@ def test_vending_machine_has_products():
     assert m.products == products
 
 
-
-
 def test_product_equality():
-    product_a = Product('a')
-    another_product_a = Product('a')
-
+    product_a = Product("a")
+    another_product_a = Product("a")
     assert product_a == another_product_a
 
 

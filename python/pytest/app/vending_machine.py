@@ -2,10 +2,16 @@ class VendingMachine:
     def __init__(self):
         self.products = Products()
 
+
 class Product:
     def __init__(self, name: str) -> None:
         self.name = name
 
+    def __eq__(self, other: "Product"):
+        return self.name == other.name
+
+    def __hash__(self):
+        return hash(self.name)
 
 
 class Products:
