@@ -7,15 +7,17 @@ namespace DotnetStarter.Logic.Tests
         [Fact]
         public void A_VendingMachine_IsCreated()
         {
-            var machine = new VendingMachine();
+            var machine = CreateVendingMachine();
             Assert.NotNull(machine);
         }
 
         [Fact]
         public void A_VendingMachine_HasMoneyProperty()
         {
-            var machine = new VendingMachine();
+            var machine = CreateVendingMachine();
             Assert.Equal(0, machine.Money);
         }
+
+        public static VendingMachine CreateVendingMachine() => new();
     }
 }
