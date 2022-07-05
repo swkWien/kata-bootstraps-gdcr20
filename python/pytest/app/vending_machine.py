@@ -1,8 +1,3 @@
-class VendingMachine:
-    def __init__(self):
-        self.products = Products()
-
-
 class Product:
     def __init__(self, name: str) -> None:
         self.name = name
@@ -12,6 +7,14 @@ class Product:
 
     def __hash__(self):
         return hash(self.name)
+
+
+class VendingMachine:
+    def __init__(self):
+        self.products = Products()
+
+    def select(self, item: Product):
+        return item
 
 
 class Products:
