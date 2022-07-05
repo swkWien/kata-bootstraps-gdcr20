@@ -24,6 +24,9 @@ Features
 
 from app.vending_machine import Product, Products, VendingMachine
 
+HAM = Product("ham")
+SPAM = Product("spam")
+
 
 def test_vending_machine_has_products():
     m = VendingMachine()
@@ -32,25 +35,22 @@ def test_vending_machine_has_products():
 
 
 def test_product_equality():
-    product_a = Product("a")
-    another_product_a = Product("a")
-    assert product_a == another_product_a
+    assert SPAM == SPAM
+    assert SPAM != HAM
 
 
 def test_products_are_different_if_they_contain_different_items():
     products1 = Products()
-    product_a = Product("a")
-    products1.add(product_a)
+    products1.add(SPAM)
 
     products2 = Products()
-    product_b = Product("b")
-    products2.add(product_b)
+    products2.add(HAM)
     assert products2 != products1
 
 
 def test_products_can_take_product():
     products = Products()
-    products.add("spam")
+    products.add(SPAM)
     assert len(products) == 1
-    products.add("ham")
+    products.add(HAM)
     assert len(products) == 2
