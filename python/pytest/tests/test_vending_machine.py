@@ -25,11 +25,5 @@ Features
 from app.vending_machine import VendingMachine
 
 
-def test_correct_greeting():
-    thing = VendingMachine("Bob")
-    assert "Hello Bob!" == thing.return_hello_name()
-
-
-def test_fail():
-    thing = VendingMachine("Albert")
-    assert "Hello Albert!" == thing.return_hello_name()
+def test_initialized_vending_machine():
+    m = VendingMachine()
