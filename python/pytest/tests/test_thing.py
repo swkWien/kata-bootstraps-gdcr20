@@ -54,11 +54,21 @@ def test_candy_price():
 
 
 class VendingMachine:
-    
+    def __init__(self):
+        self.value = 0
+
     def display_text(self):
         return "INSERT COIN"
+
+    def current_value(self):
+        return self.value
 
 
 def test_display_message_is_initially_insert_coin():
     initial_vending_machine = VendingMachine()
     assert initial_vending_machine.display_text() == "INSERT COIN"
+
+def test_vending_machine_current_value():
+    vending_machine = VendingMachine()
+    assert vending_machine.current_value() == 0
+    
