@@ -16,7 +16,7 @@ namespace DotnetStarter.Logic.Tests
         {
             var displayMock = new DisplayMock();
             CreateVendingMachine(displayMock);
-            Assert.Equal("", displayMock.LastMessage);
+            Assert.Equal("INSERT COIN", displayMock.LastMessage);
         }
 
         [Fact]
@@ -32,5 +32,9 @@ namespace DotnetStarter.Logic.Tests
     public class DisplayMock : IDisplay
     {
         public string LastMessage { get; set; } = "";
+        public void NewMessage(string insertCoin)
+        {
+            LastMessage = insertCoin;
+        }
     }
 }
