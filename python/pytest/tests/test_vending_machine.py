@@ -31,11 +31,18 @@ def test_vending_machine_has_products():
     assert m.products == products
 
 
+class Product:
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+
 def test_products_are_different_if_they_contain_different_items():
     products1 = Products()
-    products1.add("a")
+    product = Product("a")
+    products1.add(product)
     products2 = Products()
-    products2.add("b")
+    p2 = Product("b")
+    products2.add(p2)
     assert products2 != products1
 
 
