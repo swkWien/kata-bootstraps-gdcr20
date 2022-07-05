@@ -35,6 +35,14 @@ def test_vending_machine_has_products():
     assert m.products == products
 
 
+def test_products_are_different_if_they_contain_different_items():
+    products1 = Products()
+    products1.add("a")
+    products2 = Products()
+    products2.add("b")
+    assert products2 != products1
+
+
 def test_products_can_take_product():
     products = Products()
     products.add("spam")
