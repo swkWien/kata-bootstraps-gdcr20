@@ -22,7 +22,7 @@ Features
 * Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
 """
 
-from app.vending_machine import VendingMachine
+from app.vending_machine import Products, VendingMachine
 
 
 def test_initialized_vending_machine():
