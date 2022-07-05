@@ -25,10 +25,6 @@ Features
 from app.vending_machine import Products, VendingMachine
 
 
-def test_initialized_vending_machine():
-    m = VendingMachine()
-
-
 def test_vending_machine_has_products():
     m = VendingMachine()
     products = Products()
