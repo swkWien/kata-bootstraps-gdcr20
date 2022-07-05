@@ -1,65 +1,28 @@
-# Project layout
+# Kata
 
-- `app` contains dummy package to be tested 
-- `tests` contains tests definitions 
+Session #1 / Kata
+Vending Machine
+see all details Vending Machine Kata   
 
-# Python with pytest
+products: 
+Cola - 1 $
+Chips - 0,50 $
+Candy - 0,65 $    
 
+valid coins
+Penny - 1 cent
+Nickel - 5 cents
+Dime - 10 cents
+Quarter - 25 cents
 
-## Installation
-Simply install pytest & pytest-mock :
-```
-pip install -U pytest
-pip install -U pytest-mock
-```
-or if using python >= 3 on a Mac :
-```
-pip3 install -U pytest
-pip3 install -U pytest-mock
-```
+Display: "INSERT COIN", if one is inserted, show the value of the coin and update the current amount of money   
 
-or alternatively:
-Create virtual environment...
-```bash
-python3 -m venv VENV
-```
-...activate it:
-```bash
-source VENV/bin/activate
-```
-...and install requirements listed in requirements.txt file:
-```
-pip install -r requirements.txt
-```
+Select product: if enough money has been inserted, present the product and display "THANK YOU" for 5 seconds   
 
-## Run
- - Write your test in a python file (```test_thing.py``` in the example)
- - run : ```python -m pytest tests/test_thing.py```
- - run tests with coverage: ```python3 -m pytest --cov=app tests/```
- - or if using python >= 3 on a Mac : ```python3 -m pytest tests/test_thing.py```
- - or if using VSCode + Python extension, right-click any test and select 'Run All Tests' (select 'pytest' when prompted to configure a test framework)
- - or if using PyCharm:
-   - First you would need to [set up test runner](https://www.jetbrains.com/help/pycharm/testing-your-first-python-application.html#choose-test-runner) for project:
-     - Open Project preferences (On Mac - ⌘,)
-     - Navigate into `Tools -> Python integrated tools -> Testing -> Test runner`
-     - Choose `pytest`
-   - After that you can click on `tests` folder or individual test and either choose to
-     - Run default runner using shortcut (On Mac - ⇧^R)
-     - Manually choose test configuration under `More Run/Debug` menu - for example, in order to run tests with coverage
+Make change: return the amount of money, that hasn't been used   
 
-## Other
-An alternate version with before fixture is provided in the ```test_thing_fixture.py``` file.
+Return coins button: return the placed coins and display "INSERT COIN"   
 
-To run same as before :
-```python -m pytest tests/test_thing_fixture.py``` or ```python3 -m pytest tests/test_thing_fixture.py```
+Sold out: if product is out of stock, display "SOLD OUT" for 5 seconds   
 
-## Resources
-
- - <http://pythontesting.net/framework/pytest/pytest-introduction/>
- - <https://docs.pytest.org/en/latest/getting-started.html>
-
-## run from docker
-
- ```
- './docker_test.sh'
- ```
+Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
