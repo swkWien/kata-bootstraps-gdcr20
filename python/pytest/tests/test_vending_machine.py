@@ -29,9 +29,15 @@ SPAM = Product("spam")
 
 
 def test_vending_machine_has_products():
-    m = VendingMachine()
+    machine = VendingMachine()
     products = Products()
-    assert m.products == products
+    assert machine.products == products
+
+
+def test_vending_machine_can_select_product():
+    machine = VendingMachine()
+    selected_product = machine.select(HAM)
+    assert selected_product == HAM
 
 
 def test_product_equality():
