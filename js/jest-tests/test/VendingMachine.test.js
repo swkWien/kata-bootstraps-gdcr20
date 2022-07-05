@@ -1,5 +1,14 @@
 import HelloWorld from '../src/HelloWorld';
 
+class Budget {
+  constructor(value) {
+    this.theValue = value
+  }
+
+  get value() {
+    return this.theValue
+  }
+}
 class Nickel {
   get value() {
     return 5;
@@ -22,7 +31,7 @@ function displayValueOfState(state) {
 
 // Return type: { displayValue: Function, insertCoin: Function, ... }
 function insertCoin(coin) {
-  return () => displayValueOfState(coin);
+  return { displayValue: () => displayValueOfState(coin), insertCoin: (newCoin) => insertCoin(new Budget(newCoin.value + coin.value)) };
 }
 
 test('it should return INSERT COIN if no coin was inserted', () => {
