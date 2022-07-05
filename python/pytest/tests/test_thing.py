@@ -20,6 +20,10 @@ Features
 * Return coins button: return the placed coins and display "INSERT COIN"
 * Sold out: if product is out of stock, display "SOLD OUT" for 5 seconds
 * Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
+
+Constraint to focus on:
+* One argument per function
+* Try to work on buying something
 """
 from app.thing import Thing
 
