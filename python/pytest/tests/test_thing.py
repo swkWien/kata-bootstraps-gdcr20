@@ -1,11 +1,9 @@
-from app.thing import Thing
+import enum
 
 
-def test_correct_greeting():
-    thing = Thing("Bob")
-    assert "Hello Bob!" == thing.return_hello_name()
+def coin_value(coin_identifier):
+    if coin_identifier == "penny":
+        return 1
 
-
-def test_fail():
-    thing = Thing("Albert")
-    assert "Wrong!" == thing.return_hello_name()
+def test_penny_coin_value():
+    assert coin_value('penny') == 1
