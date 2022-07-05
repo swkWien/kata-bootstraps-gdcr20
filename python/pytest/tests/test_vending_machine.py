@@ -22,14 +22,14 @@ Features
 * Exact change only: display "EXACT CHANGE ONLY" if the machine is not able to give chance.
 """
 
-from app.thing import Thing
+from app.vending_machine import VendingMachine
 
 
 def test_correct_greeting():
-    thing = Thing("Bob")
+    thing = VendingMachine("Bob")
     assert "Hello Bob!" == thing.return_hello_name()
 
 
 def test_fail():
-    thing = Thing("Albert")
+    thing = VendingMachine("Albert")
     assert "Hello Albert!" == thing.return_hello_name()

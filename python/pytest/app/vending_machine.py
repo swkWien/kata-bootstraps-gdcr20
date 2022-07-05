@@ -1,5 +1,4 @@
-class Thing:
-
+class VendingMachine:
     def __init__(self, name):
         self.name = name
 
