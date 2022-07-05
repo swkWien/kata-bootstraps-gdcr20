@@ -29,3 +29,6 @@ def test_initialized_vending_machine():
     m = VendingMachine()
 
 
+def test_vending_machine_has_product_list():
+    m = VendingMachine()
+    assert m.products
