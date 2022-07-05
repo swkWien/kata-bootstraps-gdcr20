@@ -28,13 +28,4 @@ namespace DotnetStarter.Logic.Tests
 
         public static VendingMachine CreateVendingMachine(DisplayMock displayMock) => new(displayMock);
     }
-
-    public class DisplayMock : IDisplay
-    {
-        public string LastMessage { get; set; } = "";
-        public void NewMessage(string insertCoin)
-        {
-            LastMessage = insertCoin;
-        }
-    }
 }
