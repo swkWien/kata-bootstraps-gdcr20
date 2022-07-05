@@ -40,14 +40,25 @@ class Product(enum.Enum):
     candy = 65
 
 
-def product_prize(product: Product):
+def product_price(product: Product):
     return product.value
 
 def test_cola_product():
-    assert product_prize(Product.cola) == 100
+    assert product_price(Product.cola) == 100
 
 def test_chips_price():
-    assert product_prize(Product.chips) == 50
+    assert product_price(Product.chips) == 50
 
 def test_candy_price():
-    assert product_prize(Product.candy) == 65
+    assert product_price(Product.candy) == 65
+
+
+class VendingMachine:
+    
+    def display_text(self):
+        return "INSERT COIN"
+
+
+def test_display_message_is_initially_insert_coin():
+    initial_vending_machine = VendingMachine()
+    assert initial_vending_machine.display_text() == "INSERT COIN"
