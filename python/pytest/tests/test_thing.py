@@ -32,3 +32,10 @@ def test_should_throw_error_for_invalid_coin():
         class X:
             value = 113
         coin_value(X())
+
+
+def product_prize(product):
+    if product == "cola":
+        return 100
+def test_cola_product():
+    assert product_prize("cola") == 100
