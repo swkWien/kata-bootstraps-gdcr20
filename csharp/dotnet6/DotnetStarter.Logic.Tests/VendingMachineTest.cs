@@ -10,5 +10,12 @@ namespace DotnetStarter.Logic.Tests
             var machine = new VendingMachine();
             Assert.NotNull(machine);
         }
+
+        [Fact]
+        public void A_VendingMachine_HasMoneyProperty()
+        {
+            var machine = new VendingMachine();
+            Assert.Equal(0, machine.Money);
+        }
     }
 }
