@@ -37,4 +37,5 @@ def test_vending_machine_has_products():
 
 def test_products_can_take_product():
     products = Products()
-    products.add()
+    products.add("spam")
+    assert len(products) == 1
