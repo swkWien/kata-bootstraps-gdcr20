@@ -8,7 +8,8 @@ class Products:
         self._items = set()
 
     def __eq__(self, other):
-        return True
+        # TODO: complete if you want to
+        return self._items == other._items
 
     def add(self, product):
         self._items.add(product)
