@@ -39,3 +39,5 @@ def test_products_can_take_product():
     products = Products()
     products.add("spam")
     assert len(products) == 1
+    products.add("ham")
+    assert len(products) == 2
