@@ -42,13 +42,49 @@ def buy_product(product):
     return get_product
 
 
+def prepare_shopping(inventory):
+    def buy_product(product):
+        def get_product():
+            return product
+
+        def product_na():
+            return None
+
+        if inventory.get(product):
+            return get_product
+
+        return product_na
+
+    return buy_product
+
+
 def test_buy_a_cola():
-    get_product = buy_product("Cola")
+    the_buy_product = prepare_shopping({
+        "Cola": 1,
+        "Candy": 1,
+    })
+
+    get_product = the_buy_product("Cola")
     item = get_product()
     assert "Cola" == item
 
 
 def test_buy_a_candy():
-    get_product = buy_product("Candy")
+    the_buy_product = prepare_shopping({
+        "Cola": 1,
+        "Candy": 1,
+    })
+
+    get_product = the_buy_product("Candy")
     item = get_product()
     assert "Candy" == item
+
+def test_buy_missing_product():
+    the_buy_product = prepare_shopping({
+        "Cola": 1,
+        "Candy": 1,
+    })
+
+    get_product = the_buy_product("Fanta")
+    item = get_product()
+    assert item is None
