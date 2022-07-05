@@ -30,9 +30,14 @@ describe('Hello World', () => {
   });
 });
 
-describe('Intialized vending machine displays INSERT COIN', () => {
+describe('Intialized vending machine knows about status', () => {
   it('initiate vending machine', () => {
     const machine = new VendingMachine();
     expect(machine).is.not.undefined;
+  })
+  it('status message asks for coins', () => {
+    const machine = new VendingMachine();
+    const status_message = machine.status()  // TODO: later introduce status class?
+    expect(status_message).to.equal('ask for coins');
   })
 })
