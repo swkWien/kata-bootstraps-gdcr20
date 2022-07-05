@@ -1,19 +1,20 @@
 import enum
 
 
-def coin_value(coin_identifier):
-    if coin_identifier == "penny":
-        return 1
-    if coin_identifier == "nickel":
-        return 5
-    if coin_identifier == "dime":
-        return 10
+class Coin(enum.Enum):
+    penny = 1
+    nickel = 5
+    dime = 10
+
+def coin_value(coin_identifier: Coin):
+    return coin_identifier.value
 
 def test_penny_coin_value():
-    assert coin_value('penny') == 1
+    assert coin_value(Coin.penny) == 1
 
 def test_nickel_coin_value():
-    assert coin_value('nickel') == 5
+    assert coin_value(Coin.nickel) == 5
 
 def test_dime_coin_value():
-    assert coin_value('dime') == 10
+    assert coin_value(Coin.dime) == 10
+
