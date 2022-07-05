@@ -36,6 +36,8 @@ buy_product = prepare_shopping(shop_state)
 
 get_product, buy_product, get_change, add_coins = buy_product("cola")
 """
+from functools import partial
+
 def buy_product(product):
     def get_product():
         return product
@@ -45,24 +47,28 @@ def buy_product(product):
 def prepare_shopping(inventory):
     def buy_product(product):
         def get_product():
+            # TODO: Add this if we have a test
+            # inventory[product] - 1
             return product
 
         def product_na():
             return None
 
-        if inventory.get(product):
+        # TODO: get rid off this if
+        if inventory[product] > 0:
             return get_product
 
         return product_na
 
     return buy_product
 
+from collections import defaultdict
+DEFAULT_INVENTORY = defaultdict(int)
+DEFAULT_INVENTORY["Cola"] = 1
+DEFAULT_INVENTORY["Candy"] = 1
 
 def test_buy_a_cola():
-    the_buy_product = prepare_shopping({
-        "Cola": 1,
-        "Candy": 1,
-    })
+    the_buy_product = prepare_shopping(DEFAULT_INVENTORY)
 
     get_product = the_buy_product("Cola")
     item = get_product()
@@ -70,20 +76,14 @@ def test_buy_a_cola():
 
 
 def test_buy_a_candy():
-    the_buy_product = prepare_shopping({
-        "Cola": 1,
-        "Candy": 1,
-    })
+    the_buy_product = prepare_shopping(DEFAULT_INVENTORY)
 
     get_product = the_buy_product("Candy")
     item = get_product()
     assert "Candy" == item
 
 def test_buy_missing_product():
-    the_buy_product = prepare_shopping({
-        "Cola": 1,
-        "Candy": 1,
-    })
+    the_buy_product = prepare_shopping(DEFAULT_INVENTORY)
 
     get_product = the_buy_product("Fanta")
     item = get_product()
