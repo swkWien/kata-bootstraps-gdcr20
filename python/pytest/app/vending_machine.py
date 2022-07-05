@@ -1,3 +1,6 @@
+from this import d
+
+
 class Product:
     def __init__(self, name: str) -> None:
         self.name = name
@@ -14,7 +17,7 @@ class VendingMachine:
         self.products = Products()
 
     def select(self, item: Product):
-        if item == Product("ham"):
+        if item in self.products:
             return item
 
         raise ProductNotAvailable()
@@ -27,6 +30,9 @@ class Products:
     def __eq__(self, other):
         # TODO: complete if you want to
         return self._items == other._items
+
+    def __iter__(self):
+        return iter(self._items)
 
     def add(self, product):
         self._items.add(product)
