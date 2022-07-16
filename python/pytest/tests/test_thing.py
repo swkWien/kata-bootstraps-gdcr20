@@ -1,11 +1,33 @@
-from app.thing import Thing
+"""
+Diamond Kata
+
+Besprechung:
+- Wer kennt das Diamond Kata?
+
+> PrintDiamond('A')
+
+A
+
+> PrintDiamond('B')
+
+ A
+B B
+ A
+
+> PrintDiamond('C')
+
+  A
+ B B
+C   C
+ B B
+  A
+"""
 
 
-def test_correct_greeting():
-    thing = Thing("Bob")
-    assert "Hello Bob!" == thing.return_hello_name()
+def diamond():
+    pass
 
 
-def test_fail():
-    thing = Thing("Albert")
-    assert "Wrong!" == thing.return_hello_name()
+def test_diamond_for_A():
+    lines = diamond()
+    assert lines is None
