@@ -1,5 +1,9 @@
 public class VendingMachine {
+	public VendingMachine(CointReturnTray cointReturnTray) {
+
+	}
+
 	public int insertCoin(int coin) {
-		return 5;
+		return coin;
 	}
 }
