@@ -26,3 +26,5 @@ Java >= _1.8_
 
   [java-ci-badge]:../../../../kata-bootstraps/workflows/Java%20CI/badge.svg "CI build status"
   [ci-actions]:../../../../kata-bootstraps/actions
+
+Have fun! (even if it's Java)
