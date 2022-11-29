@@ -55,7 +55,18 @@ class VendingMachineTest {
     	
     	VendingMachine vendingMachine = new VendingMachine();
     	
-    	int balance = vendingMachine.insertCoin(7);
+    	vendingMachine.insertCoin(1);
+    	vendingMachine.insertCoin(2);
+    	vendingMachine.insertCoin(3);
+    	vendingMachine.insertCoin(4);
+    	vendingMachine.insertCoin(6);
+    	vendingMachine.insertCoin(7);
+    	vendingMachine.insertCoin(8);
+    	vendingMachine.insertCoin(9);
+    	vendingMachine.insertCoin(11);
+    	vendingMachine.insertCoin(14);
+    	vendingMachine.insertCoin(30);
+    	int balance = vendingMachine.insertCoin(40);
     	
     	assertThat(balance).isEqualTo(0);
     }
