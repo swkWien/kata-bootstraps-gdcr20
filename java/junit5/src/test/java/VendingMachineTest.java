@@ -49,4 +49,15 @@ public class VendingMachineTest {
 
         assertThat(coinReturnTray.empty()).isEqualTo(1);
     }
+
+    @Test
+    public void twoRejectedPennyGoIntoCoinReturnTray(){
+        CoinReturnTray coinReturnTray = new CoinReturnTray();
+        VendingMachine vendingMachine = new VendingMachine(coinReturnTray);
+
+        vendingMachine.insertCoin(1);
+        vendingMachine.insertCoin(1);
+
+        assertThat(coinReturnTray.empty()).isEqualTo(2);
+    }
 }
