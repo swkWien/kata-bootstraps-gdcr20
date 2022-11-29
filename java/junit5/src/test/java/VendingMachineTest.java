@@ -21,4 +21,22 @@ public class VendingMachineTest {
 
         assertThat(currentBalance).isEqualTo(5);
     }
+
+    @Test
+    public void vendingMachineAcceptsADime(){
+        VendingMachine vendingMachine = new VendingMachine();
+
+        int currentBalance = vendingMachine.insertCoin(10);
+
+        assertThat(currentBalance).isEqualTo(10);
+    }
+
+    @Test
+    public void vendingMachineRejectsAPenny(){
+        VendingMachine vendingMachine = new VendingMachine();
+
+        int currentBalance = vendingMachine.insertCoin(1);
+
+        assertThat(currentBalance).isEqualTo(0);
+    }
 }
