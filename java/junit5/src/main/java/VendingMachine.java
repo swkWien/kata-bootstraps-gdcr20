@@ -1,5 +1,5 @@
 public class VendingMachine {
 	public int insertCoin(int i) {
-		return 10;
+		return i < 10 ? 5 : 10;
 	}
 }
