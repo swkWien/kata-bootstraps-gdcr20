@@ -18,4 +18,11 @@ class VendingMachineTest {
         int balance = vendingMachine.insertCoin(5);
         assertThat(balance).isEqualTo(5);
     }
+
+    @Test
+    void vendingMachineShouldNotAccept1ctAndShowBalanceOf0() {
+        VendingMachine vendingMachine = new VendingMachine();
+        int balance = vendingMachine.insertCoin(1);
+        assertThat(balance).isEqualTo(0);
+    }
 }
