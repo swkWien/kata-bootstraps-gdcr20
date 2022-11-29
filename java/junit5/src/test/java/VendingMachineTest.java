@@ -12,4 +12,13 @@ public class VendingMachineTest {
 
         assertThat(currentBalance).isEqualTo(25);
     }
+
+    @Test
+    public void vendingMachineAcceptsANickel(){
+        VendingMachine vendingMachine = new VendingMachine();
+
+        int currentBalance = vendingMachine.insertCoin(5);
+
+        assertThat(currentBalance).isEqualTo(5);
+    }
 }
