@@ -11,4 +11,11 @@ class ThingTest {
         int balance = vendingMachine.insertCoin(10);
         assertThat(balance).isEqualTo(10);
     }
+
+    @Test
+    void vendingMachineShouldAccept5ctAndShowBalanceOf5() {
+        VendingMachine vendingMachine = new VendingMachine();
+        int balance = vendingMachine.insertCoin(5);
+        assertThat(balance).isEqualTo(5);
+    }
 }
