@@ -1,9 +1,11 @@
 public class VendingMachine {
 	
+	int totalValue = 0;
+	
 	public int insertCoin(int i) {
-		if (i < 5) {
-			return 0;
+		if (i >= 5) {
+			totalValue += i;
 		}
-		return i < 10 ? 5 : 10;
+		return totalValue;
 	}
 }

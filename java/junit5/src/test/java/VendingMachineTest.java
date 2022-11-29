@@ -32,8 +32,32 @@ class VendingMachineTest {
         vendingMachine.insertCoin(5);
         vendingMachine.insertCoin(5);
         vendingMachine.insertCoin(5);
+        vendingMachine.insertCoin(5);
         int balance = vendingMachine.insertCoin(5);
         assertThat(balance).isEqualTo(25);
+    }
+    
+    @Test
+    void vendingMachineShouldNotAcceptCoinsAndShowTheirValues() {
+    	
+    	VendingMachine vendingMachine = new VendingMachine();
+    	int balance = 0;
+    	
+    	Coin[] values = Coin.values();
+    	for (Coin coin : values) {
+    		balance = vendingMachine.insertCoin(coin.getValue());
+		}
+    	assertThat(balance).isEqualTo(65);
+    }
+    
+    @Test
+    void vendingMachineShouldNotAcceptNonExistingValues() {
+    	
+    	VendingMachine vendingMachine = new VendingMachine();
+    	
+    	int balance = vendingMachine.insertCoin(7);
+    	
+    	assertThat(balance).isEqualTo(0);
     }
 
 }
