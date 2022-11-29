@@ -1,9 +1,13 @@
 public class CoinReturnTray {
-    
+
+    private int rejectedBalance;
     public CoinReturnTray(){}
 
     public int empty() { 
-        return 1;
+        return rejectedBalance;
     }
 
+    public void rejectCoin(int rejectedCoin) {
+        rejectedBalance += rejectedCoin;
+    }
 }
