@@ -50,4 +50,14 @@ describe('Pac-Man grows a tail every third bullet', () => {
 
     expect(pacman.getTailLength()).toEqual(1);
   });
+
+  it('should grow tail length of two after eating 6th bullet', () => {
+    const pacman = new Pacman();
+
+    for(let i =0; i<6;i++) {
+      pacman.eatBullet();
+    }
+
+    expect(pacman.getTailLength()).toEqual(2);
+  });
 })
