@@ -6,58 +6,89 @@ The ghosts can also catch the tail
 */
 
 class Pacman {
-  private bulletCount = 0;
+  private foodCount = 0;
 
   public getTailLength(): number {
-    return Math.floor(this.bulletCount / 3);
+    return Math.floor(this.foodCount / 3);
   }
 
   eatBullet() {
-    ++this.bulletCount;
+    ++this.foodCount;
+  }
+
+  eatGhost() {
+    this.foodCount += 6
   }
 }
+
+let pacman: Pacman
+
+beforeEach(() => {
+  pacman = new Pacman()
+});
 
 describe('Pac-Man grows a tail every third bullet', () => {
 
   it('Pac-Man initially does not have a tail', () => {
-    const pacman = new Pacman()
     expect(pacman.getTailLength()).toEqual(0)
   })
 
   it('should not grow a tail after eating first bullet', () => {
-    const pacman = new Pacman();
 
-    pacman.eatBullet();
+    eatBullets(1)
 
     expect(pacman.getTailLength()).toEqual(0)
   });
 
   it('should not grow a tail after eating the second bullet', () => {
-    const pacman = new Pacman();
 
-    pacman.eatBullet();
-    pacman.eatBullet();
+    eatBullets(2)
 
     expect(pacman.getTailLength()).toEqual(0);
   });
 
   it('should grow tail length of one after eating third bullet', () => {
-    const pacman = new Pacman();
 
-    pacman.eatBullet();
-    pacman.eatBullet();
-    pacman.eatBullet();
-
+    eatBullets(3)
     expect(pacman.getTailLength()).toEqual(1);
   });
 
   it('should grow tail length of two after eating 6th bullet', () => {
-    const pacman = new Pacman();
 
-    for(let i =0; i<6;i++) {
-      pacman.eatBullet();
-    }
+    eatBullets(6)
 
     expect(pacman.getTailLength()).toEqual(2);
   });
+
+  function eatBullets(amount: number) {
+    for (let i = 0; i < amount; i++) {
+      pacman.eatBullet();
+    }
+  }
 })
+
+describe('Pac-Man grows two for each ghost', () => {
+
+  it('should grow tail by two after eating one ghost', () => {
+
+    pacman.eatGhost()
+
+    expect(pacman.getTailLength()).toEqual(2);
+  });
+
+  it('should grow tail by four after eating two ghosts', () => {
+
+    pacman.eatGhost()
+    pacman.eatGhost()
+
+    expect(pacman.getTailLength()).toEqual(4);
+  });
+
+});
+
+describe('Pac-Man should not hit itself', () => {
+
+
+
+
+});
