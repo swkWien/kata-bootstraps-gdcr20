@@ -1,3 +1,5 @@
+import Pacman from './Pacman';
+
 describe('Pacman', () => {
 
     it('should have 3 lives on start', () => {
