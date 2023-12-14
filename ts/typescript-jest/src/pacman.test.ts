@@ -6,12 +6,14 @@ The ghosts can also catch the tail
 */
 
 class Pacman {
+  private bulletCount = 0;
+
   public getTailLength(): number {
-    return 0
+    return Math.floor(this.bulletCount / 3);
   }
 
   eatBullet() {
-
+    ++this.bulletCount;
   }
 }
 
@@ -28,5 +30,24 @@ describe('Pac-Man grows a tail every third bullet', () => {
     pacman.eatBullet();
 
     expect(pacman.getTailLength()).toEqual(0)
+  });
+
+  it('should not grow a tail after eating the second bullet', () => {
+    const pacman = new Pacman();
+
+    pacman.eatBullet();
+    pacman.eatBullet();
+
+    expect(pacman.getTailLength()).toEqual(0);
+  });
+
+  it('should grow tail length of one after eating third bullet', () => {
+    const pacman = new Pacman();
+
+    pacman.eatBullet();
+    pacman.eatBullet();
+    pacman.eatBullet();
+
+    expect(pacman.getTailLength()).toEqual(1);
   });
 })
