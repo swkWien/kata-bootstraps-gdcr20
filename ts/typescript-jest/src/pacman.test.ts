@@ -9,6 +9,10 @@ class Pacman {
   public getTailLength(): number {
     return 0
   }
+
+  eatBullet() {
+
+  }
 }
 
 describe('Pac-Man grows a tail every third bullet', () => {
@@ -18,4 +22,11 @@ describe('Pac-Man grows a tail every third bullet', () => {
     expect(pacman.getTailLength()).toEqual(0)
   })
 
+  it('should not grow a tail after eating first bullet', () => {
+    const pacman = new Pacman();
+
+    pacman.eatBullet();
+
+    expect(pacman.getTailLength()).toEqual(0)
+  });
 })
